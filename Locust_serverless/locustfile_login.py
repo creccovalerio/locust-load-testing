@@ -6,15 +6,15 @@ class AppUser(HttpUser):
 
     @task
     def login_page(self):
-        email_array = ["vacrecco97@gmail.com", "ludovix9070@gmail.com", "filesurfer97@gmail.com"]
-        psw_array = ["valerio", "ludovico", "filesurfer"]
+            email_array = ["vacrecco97@gmail.com", "ludovix9070@gmail.com", "filesurfer97@gmail.com"]
+            psw_array = ["valerio", "ludovico", "filesurfer"]
         
-        for index in range(0,3):
+        #for index in range(0,3):
             response = self.client.post("/login", data=json.dumps({
-                            "email": email_array[index],
-                            "password": psw_array[index],
+                            "email": email_array[0],
+                            "password": psw_array[0],
                             }),auth=None,
-                            headers={'x-api-key':'CqIRvghfaQlNhPna9d7P9q39aRmEwMT87auwBmF0', 'content-type': 'application/json'})
+                            headers={'x-api-key':'XfvWhNRCkMa1Z8PtLECc88n4NyhvtufF905fdS7h', 'content-type': 'application/json'})
 
             token = response.json()['token']
             print("TOKEN: ", token)

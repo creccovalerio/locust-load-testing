@@ -7,22 +7,22 @@ class AppUser(HttpUser):
     @task
     def upload_page(self):
         
-        email_array = ["vacrecco97@gmail.com", "ludovix9070@gmail.com", "filesurfer97@gmail.com"]
-        psw_array = ["valerio", "ludovico", "filesurfer"]
-        file_array = ["iris.csv", "vote.csv", "glass.csv"]
-        for index in range(0,3):
+            email_array = ["filesurfer97@gmail.com"]
+            psw_array = ["filesurfer"]
+            file_array = ["iris.csv"]
+            #for index in range(0,3):
             response_login = self.client.post("/login", data=json.dumps({
-                "email": email_array[index],
-                "password": psw_array[index],
+                "email": email_array[0],
+                "password": psw_array[0],
                 }),auth=None,
-                headers={'x-api-key':'CqIRvghfaQlNhPna9d7P9q39aRmEwMT87auwBmF0', 'content-type': 'application/json'})
+                headers={'x-api-key':'XfvWhNRCkMa1Z8PtLECc88n4NyhvtufF905fdS7h', 'content-type': 'application/json'})
             
             token = response_login.json()['token']
             print("TOKEN: ", token)
             
             form_data = {
-                "file": (file_array[index], open("/home/valerio/wekafiles/data/data/"+file_array[index], "r"), "text/csv"),
-                "email": email_array[index]
+                "file": (file_array[0], open("/home/valerio/wekafiles/data/data/"+file_array[0], "r"), "text/csv"),
+                "email": email_array[0]
             }
 
             # Invia una richiesta POST con formData contenente un file

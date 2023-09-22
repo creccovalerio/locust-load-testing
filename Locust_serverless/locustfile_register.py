@@ -13,4 +13,4 @@ class AppUser(HttpUser):
             "email": email_array[index],
             "password": psw_array[index],
             }),auth=None,
-            headers={'x-api-key':'CqIRvghfaQlNhPna9d7P9q39aRmEwMT87auwBmF0', 'content-type': 'application/json'})
+            headers={'x-api-key':'XfvWhNRCkMa1Z8PtLECc88n4NyhvtufF905fdS7h', 'content-type': 'application/json'})
