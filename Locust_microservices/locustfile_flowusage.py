@@ -7,15 +7,15 @@ class AppUser(HttpUser):
     @task
     def flowusage_page(self):
         
-        email_array = ["vacrecco97@gmail.com", "ludovix9070@gmail.com", "filesurfer97@gmail.com"]
-        psw_array = ["valerio", "ludovico", "filesurfer"]
-        file_array = ["iris.csv", "vote.csv", "glass.csv"]
-        fidARFF_array = ["65036675f7aa72ac85778577", "65036694d865bdeed05c3dcb", "650366b3f7aa72ac85778579"]
-        for index in range(0,3):
-            
+            email_array = ["vacrecco97@gmail.com"]
+            psw_array = ["valerio"]
+            file_array = ["iris.csv"]
+            fidARFF_array = ["65036675f7aa72ac85778577"]
+            #for index in range(0,3):
+                
             login_data = {
-                'username': email_array[index],
-                'password': psw_array[index]
+                'username': email_array[0],
+                'password': psw_array[0]
             }
 
             response = self.client.post("/login", data=login_data)
@@ -24,7 +24,7 @@ class AppUser(HttpUser):
             print("TOKEN: ", token)
             
             form_data = {
-                "file-upload-csv": (file_array[index], open("/home/valerio/wekafiles/data/data/"+file_array[index], "r"), "text/csv"),
+                "file-upload-csv": (file_array[0], open("/home/valerio/wekafiles/data/data/"+file_array[0], "r"), "text/csv"),
             }
 
             # Invia una richiesta POST con formData contenente un file
@@ -37,7 +37,7 @@ class AppUser(HttpUser):
             
 
             # Invia una richiesta POST con formData contenente un file
-            response_download = self.client.get('/download_arff?fidARFF=' + fidARFF_array[index])
+            response_download = self.client.get('/download_arff?fidARFF=' + fidARFF_array[0])
             if(response_download.status_code == 200):
                 print("DOWNLOAD SUCCESS 200")
 
